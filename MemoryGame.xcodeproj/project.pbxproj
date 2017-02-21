@@ -12,6 +12,7 @@
 		DE3E57171E5C030A006A1B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3E57151E5C030A006A1B90 /* Main.storyboard */; };
 		DE3E57191E5C030A006A1B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE3E57181E5C030A006A1B90 /* Assets.xcassets */; };
 		DE3E571C1E5C030A006A1B90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3E571A1E5C030A006A1B90 /* LaunchScreen.storyboard */; };
+		DE3E57251E5C08A6006A1B90 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3E57241E5C08A6006A1B90 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		DE3E57181E5C030A006A1B90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE3E571B1E5C030A006A1B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE3E571D1E5C030A006A1B90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE3E57241E5C08A6006A1B90 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = Model/Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		DE3E57101E5C030A006A1B90 /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
+				DE3E57231E5C0857006A1B90 /* Model */,
 				DE3E57111E5C030A006A1B90 /* AppDelegate.swift */,
 				DE3E57131E5C030A006A1B90 /* ViewController.swift */,
 				DE3E57151E5C030A006A1B90 /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				DE3E571D1E5C030A006A1B90 /* Info.plist */,
 			);
 			path = MemoryGame;
+			sourceTree = "<group>";
+		};
+		DE3E57231E5C0857006A1B90 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE3E57241E5C08A6006A1B90 /* Card.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3E57141E5C030A006A1B90 /* ViewController.swift in Sources */,
+				DE3E57251E5C08A6006A1B90 /* Card.swift in Sources */,
 				DE3E57121E5C030A006A1B90 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
