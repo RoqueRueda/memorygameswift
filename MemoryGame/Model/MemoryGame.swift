@@ -47,6 +47,31 @@ class MemoryGame: NSObject {
 
     func pickCard(pickedCard: Card) {
         
+        // Basic validation
+        if(displayedCards.contains(pickedCard)) {
+            return
+        }
+        
+        pickedCard.display = true
+        
+        // Show animation
+        
+        if (displayedCards.count != 0 && displayedCards.count % 2 == 1) {
+            // There is a previous card displayed
+            let lastCard = displayedCards.last!
+            if(lastCard.match(card: pickedCard)) {
+                displayedCards.append(pickedCard)
+            } else {
+                displayedCards.removeLast()
+                lastCard.display = false;
+                // Show animation to hide card
+                pickedCard.display = false;
+                // Show animation to hide card
+            }
+        } else {
+            // There is no previous card displayed
+            displayedCards.append(pickedCard)
+        }
     }
 
 }
