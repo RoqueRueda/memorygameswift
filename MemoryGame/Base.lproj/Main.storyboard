@@ -47,20 +47,35 @@
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zke-WM-CQT">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="128" height="123"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LXO-WU-zzB">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="LXO-WU-zzB" customClass="CardCellCollectionViewCell" customModule="MemoryGame" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="123"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="123"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jq5-DB-0Q7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="123"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Jq5-DB-0Q7" firstAttribute="top" secondItem="LXO-WU-zzB" secondAttribute="top" id="4UZ-Ru-ON4"/>
+                                            <constraint firstItem="Jq5-DB-0Q7" firstAttribute="leading" secondItem="LXO-WU-zzB" secondAttribute="leading" id="OD3-wC-5lh"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jq5-DB-0Q7" secondAttribute="trailing" id="P0Z-DI-xiO"/>
+                                            <constraint firstAttribute="bottom" secondItem="Jq5-DB-0Q7" secondAttribute="bottom" id="hhH-M3-Bat"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="Jq5-DB-0Q7" id="AHp-dP-WcD"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -79,6 +94,9 @@
                             <constraint firstItem="DhA-gI-mAY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="yGv-2c-o5I"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="memoryBoard" destination="DhA-gI-mAY" id="ioU-Oj-qdF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
