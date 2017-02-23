@@ -16,11 +16,15 @@ class MemoryGame: NSObject {
         UIImage(named: "Audio-128")!,
         UIImage(named: "Chat2-128")!,
         UIImage(named: "Close-128")!,
+        UIImage(named: "Mail-128")!,
+        UIImage(named: "Menu_green-128")!,
+        UIImage(named: "Settings-128")!,
         UIImage(named: "Lock_red-128")!
     ]
     
-    var card            : [Card] = [Card]()
-    var displayedCards  : [Card] = [Card]()
+    var animationDelegate       : MemoryAnimationDelegate?
+    var card                    : [Card] = [Card]()
+    var displayedCards          : [Card] = [Card]()
     
     var isPlaying   : Bool = false
     
@@ -34,8 +38,10 @@ class MemoryGame: NSObject {
             // Increase the counter
             idCounter += 1
             
+            let secondCard : Card = Card.init(card: card);
             // Add the card to the result array.
             result.append(card)
+            result.append(secondCard)
         }
         
         result = GKRandomSource.sharedRandom()
@@ -64,9 +70,14 @@ class MemoryGame: NSObject {
             } else {
                 displayedCards.removeLast()
                 lastCard.display = false;
-                // Show animation to hide card
+                
                 pickedCard.display = false;
                 // Show animation to hide card
+                animationDelegate?.showCard(card: pickedCard)
+                
+                // Show animation to hide card
+                animationDelegate?.hideCard(card: lastCard)
+                animationDelegate?.hideCard(card: pickedCard)
             }
         } else {
             // There is no previous card displayed

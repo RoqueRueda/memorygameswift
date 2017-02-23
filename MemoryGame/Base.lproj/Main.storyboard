@@ -64,6 +64,10 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="123"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question_mark" translatesAutoresizingMaskIntoConstraints="NO" id="yx4-ff-MGe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="123"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -71,9 +75,14 @@
                                             <constraint firstItem="Jq5-DB-0Q7" firstAttribute="top" secondItem="LXO-WU-zzB" secondAttribute="top" id="4UZ-Ru-ON4"/>
                                             <constraint firstItem="Jq5-DB-0Q7" firstAttribute="leading" secondItem="LXO-WU-zzB" secondAttribute="leading" id="OD3-wC-5lh"/>
                                             <constraint firstAttribute="trailing" secondItem="Jq5-DB-0Q7" secondAttribute="trailing" id="P0Z-DI-xiO"/>
+                                            <constraint firstAttribute="bottom" secondItem="yx4-ff-MGe" secondAttribute="bottom" id="X4M-hn-OPr"/>
+                                            <constraint firstAttribute="trailing" secondItem="yx4-ff-MGe" secondAttribute="trailing" id="dVA-uY-Y0B"/>
+                                            <constraint firstItem="yx4-ff-MGe" firstAttribute="leading" secondItem="LXO-WU-zzB" secondAttribute="leading" id="fVU-0E-Q5c"/>
                                             <constraint firstAttribute="bottom" secondItem="Jq5-DB-0Q7" secondAttribute="bottom" id="hhH-M3-Bat"/>
+                                            <constraint firstItem="yx4-ff-MGe" firstAttribute="top" secondItem="LXO-WU-zzB" secondAttribute="top" id="kl0-T4-rjp"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="background" destination="yx4-ff-MGe" id="0jt-Md-wDn"/>
                                             <outlet property="image" destination="Jq5-DB-0Q7" id="AHp-dP-WcD"/>
                                         </connections>
                                     </collectionViewCell>
@@ -103,4 +112,7 @@
             <point key="canvasLocation" x="117.59999999999999" y="112.89355322338831"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="question_mark" width="128" height="128"/>
+    </resources>
 </document>

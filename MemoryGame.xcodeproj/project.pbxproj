@@ -15,6 +15,7 @@
 		DE3E57251E5C08A6006A1B90 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3E57241E5C08A6006A1B90 /* Card.swift */; };
 		DE3E57271E5C0BF9006A1B90 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3E57261E5C0BF9006A1B90 /* MemoryGame.swift */; };
 		DE55DC861E5D62F8000549E9 /* CardCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55DC851E5D62F8000549E9 /* CardCellCollectionViewCell.swift */; };
+		DEA4A81D1E5F78CC00E64422 /* MemoryAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4A81C1E5F78CC00E64422 /* MemoryAnimationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DE3E57241E5C08A6006A1B90 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = Model/Card.swift; sourceTree = "<group>"; };
 		DE3E57261E5C0BF9006A1B90 /* MemoryGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoryGame.swift; path = Model/MemoryGame.swift; sourceTree = "<group>"; };
 		DE55DC851E5D62F8000549E9 /* CardCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardCellCollectionViewCell.swift; path = Cells/CardCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		DEA4A81C1E5F78CC00E64422 /* MemoryAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryAnimationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				DE3E57241E5C08A6006A1B90 /* Card.swift */,
 				DE3E57261E5C0BF9006A1B90 /* MemoryGame.swift */,
+				DEA4A81C1E5F78CC00E64422 /* MemoryAnimationDelegate.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			files = (
 				DE3E57141E5C030A006A1B90 /* ViewController.swift in Sources */,
 				DE3E57251E5C08A6006A1B90 /* Card.swift in Sources */,
+				DEA4A81D1E5F78CC00E64422 /* MemoryAnimationDelegate.swift in Sources */,
 				DE3E57271E5C0BF9006A1B90 /* MemoryGame.swift in Sources */,
 				DE3E57121E5C030A006A1B90 /* AppDelegate.swift in Sources */,
 				DE55DC861E5D62F8000549E9 /* CardCellCollectionViewCell.swift in Sources */,

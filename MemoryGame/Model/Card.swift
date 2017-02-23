@@ -10,9 +10,10 @@ import UIKit
 
 class Card: NSObject {
     
-    var id      : Int
-    var display : Bool
-    var image   : UIImage
+    var id          : Int
+    var display     : Bool
+    var image       : UIImage
+    var position    : Int = -1
     
     init(image: UIImage) {
         self.id = 0
