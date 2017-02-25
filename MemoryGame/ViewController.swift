@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBAction func startGame(_ sender: UIButton) {
+        memoryGame.card = memoryGame.startGame(cardImages: memoryGame.cardImages)
+        memoryBoard.reloadData()
+    }
+    
     @IBOutlet weak var memoryBoard: UICollectionView!
     
     var memoryGame: MemoryGame = MemoryGame();
@@ -86,17 +91,15 @@ extension ViewController : UICollectionViewDelegate {
 extension ViewController : MemoryAnimationDelegate {
     
     func showCard(card: Card) {
-        let cell = memoryBoard.cellForItem(at: IndexPath(row: card.position, section: 0))
-            as! CardCellCollectionViewCell
-        
-        cell.showCard(show: true)
+        if let cell = memoryBoard.cellForItem(at: IndexPath(row: card.position, section: 0)) as! CardCellCollectionViewCell? {
+            cell.showCard(show: true)
+        }
     }
     
     func hideCard(card: Card) {
-        let cell = memoryBoard.cellForItem(at: IndexPath(row: card.position, section: 0))
-            as! CardCellCollectionViewCell
-            
-        cell.showCard(show: false)
+        if let cell = memoryBoard.cellForItem(at: IndexPath(row: card.position, section: 0)) as! CardCellCollectionViewCell? {
+            cell.showCard(show: false)
+        }
     }
     
 }

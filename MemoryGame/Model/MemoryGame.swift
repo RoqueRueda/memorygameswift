@@ -76,8 +76,11 @@ class MemoryGame: NSObject {
                 animationDelegate?.showCard(card: pickedCard)
                 
                 // Show animation to hide card
-                animationDelegate?.hideCard(card: lastCard)
-                animationDelegate?.hideCard(card: pickedCard)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                    self.animationDelegate?.hideCard(card: lastCard)
+                    self.animationDelegate?.hideCard(card: pickedCard)
+                    })
+                
             }
         } else {
             // There is no previous card displayed
