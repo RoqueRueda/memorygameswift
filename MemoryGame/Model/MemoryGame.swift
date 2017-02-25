@@ -23,7 +23,7 @@ class MemoryGame: NSObject {
     ]
     
     var animationDelegate       : MemoryAnimationDelegate?
-    var card                    : [Card] = [Card]()
+    var cards                   : [Card] = [Card]()
     var displayedCards          : [Card] = [Card]()
     
     var isPlaying   : Bool = false
@@ -46,7 +46,7 @@ class MemoryGame: NSObject {
         
         result = GKRandomSource.sharedRandom()
             .arrayByShufflingObjects(in: result) as! [Card]
-        
+        displayedCards.removeAll()
         isPlaying = true
         return result
     }
@@ -76,11 +76,11 @@ class MemoryGame: NSObject {
                 animationDelegate?.showCard(card: pickedCard)
                 
                 // Show animation to hide card
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1,
+                                              execute: {
                     self.animationDelegate?.hideCard(card: lastCard)
                     self.animationDelegate?.hideCard(card: pickedCard)
-                    })
-                
+                })
             }
         } else {
             // There is no previous card displayed

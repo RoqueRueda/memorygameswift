@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBAction func startGame(_ sender: UIButton) {
-        memoryGame.card = memoryGame.startGame(cardImages: memoryGame.cardImages)
-        memoryBoard.reloadData()
+        memoryGame.cards = memoryGame.startGame(cardImages: memoryGame.cardImages)
+        reloadCards(count: memoryGame.cards.count)
     }
     
     @IBOutlet weak var memoryBoard: UICollectionView!
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        memoryGame.card = memoryGame.startGame(cardImages: memoryGame.cardImages)
+        memoryGame.cards = memoryGame.startGame(cardImages: memoryGame.cardImages)
         memoryGame.animationDelegate = self
         memoryBoard.dataSource = self
         memoryBoard.delegate = self
@@ -34,7 +34,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func reloadCards(count : Int) {
+        
+        let indexSet = IndexSet(integersIn: 0...0)
+        memoryBoard.reloadSections(indexSet)
+        
+//        var changedIndexPaths : [IndexPath] = [IndexPath]()
+//        for row in 0...count {
+//            let chngPath = IndexPath(row: row, section: 0)
+//            changedIndexPaths.append(chngPath)
+//        }
+//        
+//        memoryBoard.reloadItems(at: changedIndexPaths)
+    }
 }
 
 extension ViewController : UICollectionViewDataSource {
@@ -44,19 +56,19 @@ extension ViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return memoryGame.card.count
+        return memoryGame.cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "cardCell", for: indexPath) as! CardCellCollectionViewCell
         
-        cell.id = memoryGame.card[indexPath.row].id
-        cell.image.image = memoryGame.card[indexPath.row].image
+        cell.id = memoryGame.cards[indexPath.row].id
+        cell.image.image = memoryGame.cards[indexPath.row].image
         cell.background.image = UIImage(named: "question_mark")!
-        memoryGame.card[indexPath.row].position = indexPath.row
+        memoryGame.cards[indexPath.row].position = indexPath.row
         
-        if memoryGame.card[indexPath.row].display {
+        if memoryGame.cards[indexPath.row].display {
             cell.image.isHidden = false
             cell.background.isHidden = true
         } else {
@@ -72,7 +84,7 @@ extension ViewController : UICollectionViewDataSource {
     
 }
 
-extension ViewController : UICollectionViewDelegate {
+extension ViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CardCellCollectionViewCell
@@ -81,9 +93,12 @@ extension ViewController : UICollectionViewDelegate {
         }
         
         cell.showCard(show: true);
-        memoryGame.pickCard(pickedCard: memoryGame.card[indexPath.row])
+        memoryGame.pickCard(pickedCard: memoryGame.cards[indexPath.row])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        
+        return CGSize(width: 60, height: 60)
     }
     
 }
@@ -91,13 +106,19 @@ extension ViewController : UICollectionViewDelegate {
 extension ViewController : MemoryAnimationDelegate {
     
     func showCard(card: Card) {
-        if let cell = memoryBoard.cellForItem(at: IndexPath(row: card.position, section: 0)) as! CardCellCollectionViewCell? {
+        if let cell = memoryBoard.cellForItem(at:
+            IndexPath(row: card.position, section: 0))
+            as! CardCellCollectionViewCell?
+        {
             cell.showCard(show: true)
         }
     }
     
     func hideCard(card: Card) {
-        if let cell = memoryBoard.cellForItem(at: IndexPath(row: card.position, section: 0)) as! CardCellCollectionViewCell? {
+        if let cell = memoryBoard.cellForItem(at:
+            IndexPath(row: card.position, section: 0))
+            as! CardCellCollectionViewCell?
+        {
             cell.showCard(show: false)
         }
     }
